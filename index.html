@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ระบบจองนัดหมาย</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+    <h2 style="text-align: center; margin-top: 50px;">กำลังนำท่านเข้าสู่หน้าจองนัด...</h2>
+
+    <script>
+        async function main() {
+            // 1. ใส่ LIFF ID ที่คุณได้จาก LINE Developers Console
+            await liff.init({ liffId: "ใส่_LIFF_ID_ของคุณที่นี่" }); 
+
+            if (!liff.isLoggedIn()) {
+                // ถ้ายังไม่ได้ล็อกอิน ให้เด้งไปหน้าล็อกอินของ LINE
+                liff.login();
+            } else {
+                // ดึงข้อมูลโปรไฟล์
+                const profile = await liff.getProfile();
+                const userId = profile.userId;
+
+                // 2. ใส่ลิงก์ Google Form (เอาแบบ Pre-filled link มาใส่)
+                // แก้ตัวเลข entry.xxxxxxx ให้ตรงกับช่อง LineUserID ของคุณ
+                const googleFormUrl = "https://docs.google.com/forms/d/e/XXXXX/viewform?usp=pp_url&entry.123456789=" + userId;
+
+                // ส่งคนไข้ไปที่ Google Form พร้อม ID
+                window.location.href = googleFormUrl;
+            }
+        }
+        main();
+    </script>
+</body>
+</html>
