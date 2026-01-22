@@ -11,7 +11,7 @@
     <script>
         async function main() {
             // 1. ใส่ LIFF ID ที่คุณได้จาก LINE Developers Console
-            await liff.init({ liffId: "ใส่_LIFF_ID_ของคุณที่นี่" }); 
+            await liff.init({ liffId: "2008901545-EdV0zPSK" }); 
 
             if (!liff.isLoggedIn()) {
                 // ถ้ายังไม่ได้ล็อกอิน ให้เด้งไปหน้าล็อกอินของ LINE
@@ -23,7 +23,7 @@
 
                 // 2. ใส่ลิงก์ Google Form (เอาแบบ Pre-filled link มาใส่)
                 // แก้ตัวเลข entry.xxxxxxx ให้ตรงกับช่อง LineUserID ของคุณ
-                const googleFormUrl = "https://docs.google.com/forms/d/e/XXXXX/viewform?usp=pp_url&entry.123456789=" + userId;
+                const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfL1sIl_53Y6MQXzlgmQmntmdeN5aeCmQSvPkSkADqkHcHOLA/viewform?usp=pp_url&entry.2000507172=" + userId;
 
                 // ส่งคนไข้ไปที่ Google Form พร้อม ID
                 window.location.href = googleFormUrl;
